@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Student Participation Portfolio</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <header>
+    <h1>Student Participation Portfolio</h1>
+    <p>Record activities, achievements, and contributions.</p>
+  </header>
+
+  <main>
+    <section class="summary" aria-label="Portfolio summary">
+      <div class="card">Activities<strong id="activityCount">0</strong></div>
+      <div class="card">Approved<strong id="approvedCount">0</strong></div>
+      <div class="card">Hours<strong id="hoursCount">0</strong></div>
+    </section>
+
+    <form id="activityForm">
+      <h2 id="formTitle">Add Participation Record</h2>
+
+      <label>
+        Activity name *
+        <input id="activity" required maxlength="80" placeholder="e.g. Science Fair">
+      </label>
+
+      <label>
+        Organization *
+        <input id="organization" required maxlength="80" placeholder="e.g. Science Club">
+      </label>
+
+      <label>
+        Category *
+        <select id="category" required>
+          <option value="">Choose a category</option>
+          <option>Leadership</option>
+          <option>Community Service</option>
+          <option>Academic</option>
+          <option>Arts &amp; Culture</option>
+          <option>Sports</option>
+          <option>Other</option>
+        </select>
+      </label>
+
+      <label>
+        Date *
+        <input id="date" type="date" required>
+      </label>
+
+      <label>
+        Hours *
+        <input id="hours" type="number" min="0.5" step="0.5" required>
+      </label>
+
+      <label>
+        Status
+        <select id="status">
+          <option>Pending</option>
+          <option>Approved</option>
+          <option>Draft</option>
+        </select>
+      </label>
+
+      <button class="full" type="submit">Save Record</button>
+      <div class="full" id="message" role="status" aria-live="polite"></div>
+    </form>
+
+    <section class="records">
+      <h2>My Activities</h2>
+
+      <div class="filters">
+        <input id="search" type="search" placeholder="Search activities or organizations">
+        <select id="categoryFilter" aria-label="Filter by category">
+          <option value="">All categories</option>
+          <option>Leadership</option>
+          <option>Community Service</option>
+          <option>Academic</option>
+          <option>Arts &amp; Culture</option>
+          <option>Sports</option>
+          <option>Other</option>
+        </select>
+        <select id="statusFilter" aria-label="Filter by status">
+          <option value="">All statuses</option>
+          <option>Pending</option>
+          <option>Approved</option>
+          <option>Draft</option>
+        </select>
+      </div>
+
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Activity</th>
+              <th>Organization</th>
+              <th>Category</th>
+              <th>Date</th>
+              <th>Hours</th>
+              <th>Status</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody id="activityList"></tbody>
+        </table>
+      </div>
+
+      <p id="emptyMessage">No participation records yet.</p>
+    </section>
+  </main>
+</body>
+</html>
